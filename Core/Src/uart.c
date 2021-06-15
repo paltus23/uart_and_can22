@@ -76,11 +76,12 @@ void vUartTXTask ( void *pvParametrs ){
 	while(1){
 
 		char * msg;
-		u16 volts;
+		if(fl_send == 0){
 		 if(xQueueReceive( uart_tx_queue, &msg, 10) == pdPASS ){
 			 uart_send(msg, strlen(msg));
 
 		 }
+		}
 
 	}
 }
